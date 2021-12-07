@@ -1,0 +1,11 @@
+version: '3'
+services:
+  app:
+    container_name: sagemaker
+    build: .
+    volumes:
+      - ..:/root/sagemaker-logistic-regression
+    # working_dir: /sagemaker-logistic-regression
+    entrypoint: bash
+    stdin_open: true
+    tty: true
