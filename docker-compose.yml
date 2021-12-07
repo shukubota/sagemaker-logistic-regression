@@ -4,8 +4,10 @@ services:
     container_name: sagemaker
     build: .
     volumes:
-      - ..:/root/sagemaker-logistic-regression
-    # working_dir: /sagemaker-logistic-regression
+      - type: bind
+        source: .
+        target: /root/sagemaker-logistic-regression
+    working_dir: /root/sagemaker-logistic-regression
     entrypoint: bash
     stdin_open: true
     tty: true
