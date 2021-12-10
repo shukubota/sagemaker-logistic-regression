@@ -6,7 +6,7 @@ from model import LogisticRegressionGD
 app = Flask(__name__)
 
 # 学習済modelの読み込み
-with open('model.pth', mode='rb') as f:
+with open('/opt/ml/model/model.pth', mode='rb') as f:
   model = pickle.load(f)
 
 @app.route("/ping", methods=['GET'])
