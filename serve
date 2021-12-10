@@ -2,7 +2,7 @@
 from flask import Flask
 from flask_restful import Api, Resource, abort, reqparse
 import pickle
-from main import LogisticRegressionGD
+from model import LogisticRegressionGD
 
 class Server(Resource):
   def get(self):
