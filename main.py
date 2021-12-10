@@ -1,6 +1,7 @@
 from sklearn import datasets
 from sklearn.model_selection import train_test_split
 import numpy as np
+import pickle
 
 # gradient descent 最急降下法
 class LogisticRegressionGD(object):
@@ -53,6 +54,10 @@ class LogisticRegressionGD(object):
   def predict(self, x):
     return np.where(self.net_input(x) >= 0.0, 1, 0)
 
+  def model_fn(model_dir):
+    print(model_dir)
+    return
+
 if __name__ == '__main__':
   iris = datasets.load_iris()
   x = iris.data[:, [2, 3]]
@@ -74,6 +79,11 @@ if __name__ == '__main__':
   print(y_test_01_subset)
 
   estimator.fit(x_train_01_subset, y_train_01_subset)
+
+  print(estimator)
+
+  with open('estimator.pickle', mode='wb') as f:
+    pickle.dump(estimator, f)
 
   print(estimator.w_)
 
