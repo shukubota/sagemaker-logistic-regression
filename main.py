@@ -53,17 +53,21 @@ class LogisticRegressionGD(object):
 
   def predict(self, x):
     return np.where(self.net_input(x) >= 0.0, 1, 0)
-
-  def model_fn(model_dir):
-    print(model_dir)
-    return
+  
+  def input_fn(self, args):
+    return [args.petal_length, args.petal_width]
+  
+  def output_fn(self, category_index):
+    return ['Iris-Setosa', 'Iris-Versicolour'][category_index]
 
 if __name__ == '__main__':
+  # 学習データを読む
   iris = datasets.load_iris()
+  # 2:3に花弁の長さ、幅のデータが入っている
   x = iris.data[:, [2, 3]]
   y = iris.target
 
-  # 30%をtestにする
+  # 70%を教師データにする
   x_train, x_test, y_train, y_test = train_test_split(x, y ,test_size = 0.3, random_state = 1, stratify = y)
   x_train_01_subset = x_train[(y_train == 0) | (y_train == 1)]
   y_train_01_subset = y_train[(y_train == 0) | (y_train == 1)]
@@ -71,29 +75,12 @@ if __name__ == '__main__':
   x_test_01_subset = x_train[(y_train == 0) | (y_train == 1)]
   y_test_01_subset = y_train[(y_train == 0) | (y_train == 1)]
 
+  # estimatorのインスタンス
   estimator = LogisticRegressionGD(eta = 0.05, n_iter = 1000, random_state = 1)
 
-  output = estimator.predict(x_test_01_subset)
-  print(estimator.w_)
-  print(output)
-  print(y_test_01_subset)
-
+  # 学習
   estimator.fit(x_train_01_subset, y_train_01_subset)
 
-  print(estimator)
-
+  # 学習したモデルを保存する
   with open('estimator.pickle', mode='wb') as f:
     pickle.dump(estimator, f)
-
-  print(estimator.w_)
-
-  # 推論
-  output = estimator.predict(x_test_01_subset)
-
-  print(output)
-  print(y_test_01_subset)
-
-  test = output[output != y_test_01_subset]
-  print(len(test))
-
-  
