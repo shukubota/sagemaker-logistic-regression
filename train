@@ -28,5 +28,5 @@ if __name__ == '__main__':
   estimator.fit(x_train_01_subset, y_train_01_subset)
 
   # 学習したモデルを保存する
-  with open('model.pth', mode='wb') as f:
+  with open('/opt/ml/model/model.pth', mode='wb') as f:
     pickle.dump(estimator, f)
