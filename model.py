@@ -49,8 +49,8 @@ class LogisticRegressionGD(object):
   def predict(self, x):
     return np.where(self.net_input(x) >= 0.0, 1, 0)
   
-  def input_fn(self, args):
-    return [args.petal_length, args.petal_width]
+  def input_fn(self, params):
+    return [params.get('petal_length'), params.get('petal_width')]
   
   def output_fn(self, category_index):
     return ['Iris-Setosa', 'Iris-Versicolour'][category_index]
