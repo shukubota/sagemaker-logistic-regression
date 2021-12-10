@@ -7,7 +7,6 @@ RUN pip install flask && pip install flask_restful
 RUN apt-get install -y nginx
 RUN apt-get install -y lsof
 RUN pip install gunicorn
-ENV PATH $PATH:./
-COPY . /root/sagemaker-logistic-regression
-WORKDIR /root/sagemaker-logistic-regression
-EXPOSE 8080:8080
+ENV PATH="/opt/program:${PATH}"
+COPY . /opt/program
+WORKDIR /opt/program
