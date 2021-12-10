@@ -24,7 +24,6 @@ class LogisticRegressionGD(object):
 
   def activation(self, z):
     # シグモイド活性化関数
-    # return 1. / (1. + np.exp(-np.clip(z, -250, 250)))
     return 1. / (1. + np.exp(-z))
 
   def fit(self, x, y):
