@@ -43,7 +43,7 @@ class LogisticRegressionGD(object):
       self.w_[1:] += self.eta * x.T.dot(errors)
       self.w_[0] += self.eta * errors.sum()
 
-      cost = -y.dot(np.log(output)) - ((1- y).dot(np.log(1 - output)))
+      cost = -y.dot(np.log(output)) - ((1 - y).dot(np.log(1 - output)))
       self.cost_.append(cost)
 
   def predict(self, x):
