@@ -35,7 +35,7 @@ curl --location --request GET 'http://127.0.0.1:8080/ping'
 でhealth checkができる。
 
 ```bash
-curl --location --request POST http://127.0.0.1:8080/invocations -d "{petal_length=4.6, petal_width=1.3 }"
+curl -XPOST http://127.0.0.1:8080/invocations -H 'Content-Type: application/json' -d '{"petal_length": 0.4,"petal_width": 1.6}'
 ```
 
 で推論できる。
