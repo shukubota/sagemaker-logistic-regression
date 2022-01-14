@@ -25,7 +25,7 @@ def post():
   # 後処理
   output = model.output_fn(_output)
   
-  return { "catetory": output }
+  return { "category": output }
 
 if __name__ == "__main__":
   app.debug = True
