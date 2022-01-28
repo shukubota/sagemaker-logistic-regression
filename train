@@ -30,3 +30,5 @@ if __name__ == '__main__':
   # 学習したモデルを保存する
   with open('/opt/ml/model/model.pth', mode='wb') as f:
     pickle.dump(estimator, f)
+
+  print('end training')
