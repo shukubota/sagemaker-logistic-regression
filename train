@@ -9,6 +9,8 @@ if __name__ == '__main__':
   print('start training')
   # 学習データを読む
   iris = datasets.load_iris()
+
+  print(iris)
   # 2:3に花弁の長さ、幅のデータが入っている
   x = iris.data[:, [2, 3]]
   y = iris.target
