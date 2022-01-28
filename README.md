@@ -12,7 +12,7 @@ bash start.sh
 docker container上で
 
 ```
-bash train
+./train
 ```
 
 実行後、/opt/ml/model/model.pth
@@ -22,7 +22,7 @@ bash train
 docker container上で
 
 ```
-bash serve
+./serve
 ```
 
 実行後、8080portに推論サーバがたつ。
