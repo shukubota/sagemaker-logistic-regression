@@ -1,5 +1,5 @@
 import json
-
+import boto3
 
 def hello(event, context):
     body = {
@@ -9,6 +9,9 @@ def hello(event, context):
 
     print("aaaa")
     print(event)
+
+    for record in s3.Bucket('').objects.all():
+        print(record)
 
     response = {
         "statusCode": 200,
