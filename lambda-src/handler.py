@@ -13,6 +13,11 @@ def hello(event, context):
     for record in s3.Bucket('').objects.all():
         print(record)
 
+
+    client = boto3.client('sagemakerruntime')
+    # res = client.
+
+
     response = {
         "statusCode": 200,
         "body": json.dumps(body)
